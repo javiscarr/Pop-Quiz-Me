@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/reset.css" />
+    <link rel="stylesheet" href="./assets/style.css" />
+
+    <title>Pop Quiz!!</title>
+  </head>
+  <body>
+      <!-- header -->
+  <header class="container">
+      <div class="header_area">
+
+         <!--main title at start-->
+         <div class="title_section" id="custom-header">
+            <h1 class="quiz_title">JavaScript Pop Quiz!!</h1>
+        </div>
+
+        <!--timer section-->
+
+        <div class="timer_section" id="timer">
+            Time: 60
+         </div>
+
+        
+
+         <!--score display area-->
+         <div class="score_section" id="custom-score">
+             
+            Score: 000
+         
+        </div>
+      </div>
+  </header>
+
+  <!-- designated area for quiz to start with Q&A -->
+  <main>
+    <div class="quiz_container">
+        <!--start button area and will hide upon quiz starting-->
+        <div class="rounded_row">
+            <div class="rounded_col">
+                <button class="quiz_button" id="start-button" type="button">
+                    START QUIZ
+                </button>
+            </div>
+        </div>
+    </div>
+  </main>
+  
+
+    <script src="./assets/script.js"></script>
+  </body>
+</html>
