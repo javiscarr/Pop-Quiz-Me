@@ -8,6 +8,13 @@ var answerOne = document.querySelector("#answer1");
 var answerTwo = document.querySelector("#answer2");
 var answerThree = document.querySelector("#answer3");
 var answerFour = document.querySelector("#answer4");
+var gameOverView = document.querySelector("#game-over");
+var gameOverPop = document.querySelector("#game-over-pop");
+var userNameForm = document.querySelector("#user_name_frm");
+var userName = document.querySelector("#userName");
+var highScoreList = document.querySelector("#score-board");
+var scoreList = document.querySelector("#scoreList");
+var submitBtn = document.querySelector("#submit-btn");
 
 
 
@@ -87,4 +94,52 @@ var quizArray = [
     consoleLog,
     document,
 ];
+
+//defining visibility will hide q&a, score and timer until game has started and finished
+
+scoreView.hidden = true;
+timerView.hidden= true;
+questionView.hidden = true;
+
+
+//script initiates
+init();
+
+//grabs previous scores stored in local storage
+function init() {
+
+    var storeScoreList = JSON.parse(localStorage.getItem("scoreBoard"));
+
+
+    if (storeScoreList !== null) {
+        scoreBoard = storeScoreList;
+    }
+
+    renderScoreBoard();
+
+    firstQuestion = 0;
+}
+
+function beginQuiz(event) {
+    event.preventDefault();
+    footer.hidden = true;
+    startButton.hidden = true;
+    titleView.hidden = true;
+    firstQuestion = 0;
+    currentTime = 60;
+    score = 000; 
+    questionView.hidden = false;
+
+
+    scoreView.textContent = "Score: 00" + score;
+    scoreView.hidden = false;
+    timerView.textContent = "Time: " + currentTime;
+    timerView.hidden = false;
+
+    setTimeout();
+
+    renderQuestion();
+
+}
+
 

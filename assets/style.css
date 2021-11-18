@@ -41,10 +41,10 @@ body {
     text-align: center;
     font-size: 25px;
     position: relative;
-
-       
+      
 
 }
+
 
 
 
@@ -58,6 +58,15 @@ body {
     transition: 0.3s;
     width: 60vw;
     background-color: #f0ead6;
+    border-radius: 5px;
+  }
+  
+  .quiz_container {
+
+    display: block;
+    margin: 80px auto;
+    text-align: center;
+    width: 60vw;
     border-radius: 5px;
   }
   
