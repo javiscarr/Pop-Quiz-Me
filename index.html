@@ -50,7 +50,7 @@
     </div>
 
     <!--Area where questions with display-->
-    <div class="question_container" id="question">
+    <div class="question_container" id="show-question">
         <div class="rounded_row">
             <div class="rounded_col">
                 <h2 class="" id="question"></h2>
@@ -93,7 +93,7 @@
     </div>
 
     <!--enter name-->
-    <form id="user_name">
+    <form id="user_name_frm">
         <div class="form">
             <span class="user-board">Enter Name:</span>
             <div class="col">
@@ -115,10 +115,32 @@
         </div>
 
         <!--Clear Score and retake quiz options-->
-
+        <div class="row" id="take-over">
+            <span class="" id="clear">
+                Clear
+            </span>
         </div>
+        <div class="col">
+            <span class="" id="retake">
+                Retake 
+            </span>
+        </div>
+
+    
     </div>
   </section>
+
+  <!--area designated for instructions and score list-->
+  <footer class="container" id="footer">
+      <div class="row">
+          <div class="col">
+              You will have 60 seconds to answer as many questions as you
+              can before the timer expires. <br />
+              Be mindful that EACH wrong answer with subtract time away!! <br />
+              GOOD LUCK!!!
+          </div>
+      </div>
+  </footer>
   
 
     <script src="./assets/script.js"></script>
