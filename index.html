@@ -41,13 +41,84 @@
         <!--start button area and will hide upon quiz starting-->
         <div class="rounded_row">
             <div class="rounded_col">
-                <button class="quiz_button" id="start-button" type="button">
+                <button class="start_butn" id="start-button" type="button">
+                    
                     START QUIZ
                 </button>
             </div>
         </div>
     </div>
+
+    <!--Area where questions with display-->
+    <div class="question_container" id="question">
+        <div class="rounded_row">
+            <div class="rounded_col">
+                <h2 class="" id="question"></h2>
+            </div>
+        </div>
+
+        <!--4 rows designated for answer choices-->
+        <div class="row">
+            <div class="col">
+                <p class="answer-item" id="answer1"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="answer-item" id="answer2"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="answer-item" id="answer3"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="answer-item" id="answer4"></p>
+            </div>
+        </div>
+    </div>
   </main>
+
+  <section class="container" id="game-over">
+
+    <!--game score-->
+    <div class="row" id="game-over-pop">
+        <div class="col">
+            <span class="fun-score" id="game-over-score">
+
+            </span>
+        </div>
+    </div>
+
+    <!--enter name-->
+    <form id="user_name">
+        <div class="form">
+            <span class="user-board">Enter Name:</span>
+            <div class="col">
+                <input type="text" class="form" id="userName"
+                placeholder="Your Name" />
+            </div>
+            <button type="button" class="" id="submit_btn">
+                Submit
+            </button>
+        </div>
+    </form>
+
+    <!--score board-->
+    <div class="row" id="score-board">
+        <div class="col">
+            <!--<hr class=""/>-->
+            <span class="color">Username -- // -- Score</span>
+            <ul id="scoreList" class=""></ul> 
+        </div>
+
+        <!--Clear Score and retake quiz options-->
+
+        </div>
+    </div>
+  </section>
   
 
     <script src="./assets/script.js"></script>
