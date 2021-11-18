@@ -19,7 +19,7 @@ var submitBtn = document.querySelector("#submit-btn");
 
 
 var timeCounter;
-var currentTime = 60; // total amount of seconds on the clock 
+var currentTime = 0; // total amount of seconds on the clock 
 var score = 0; // starting score
 var firstQuestion = 0; // first question to begin with and continue on until time runs out
 var scoreBoard = []; // will hold the values of the scores, currently empty
@@ -27,62 +27,7 @@ var scoreBoard = []; // will hold the values of the scores, currently empty
 
 //questions
 
-var hyperText = {
-    question: "What does HTML stand for?",
-    answers: [
-        "HyperText MarkUp Language",
-        "HyperTension Marking Language",
-        "HyperText MakeUp Language",
-        "HyperText MarkUp Lagoon"
-        ],
-        correctAnswer: "HyperText MarkUp Language",
-};
 
-var boolean = {
-    question: "What data type does var x represent? x = true",
-    answers: ["String", "Bit", "Boolean", "Object"],
-    correctAnswer: "Boolean",
-  };
-
-var css = {
-    question: "What is a Cascading Spread Sheet (CSS)?",
-    answers : [
-        "A language of status rules that allows the developer to change the content of HTML",
-        "A scripting language that enables you to create dynamically updating content, control multimedia, animate images, and pretty much everything else",
-        "A language of style rules that we use to apply styling to our HTML content",
-        "A language that we use to structure and give meaning to our web content"
-],
-    correctAnswer: "A language of style rules that we use to apply styling to our HTML content",
-};
-
-var prevent = {
-    question:
-      "Which function should we call after a submit event to prevent data loss?",
-    answers: [
-      "event.onLoad();",
-      "event.preventRefresh();",
-      "event.stopLoad();",
-      "event.preventDefault();"
-    ],
-    correctAnswer: "event.preventDefault();",
-};
-var consoleLog = {
-    question:
-      "Which expression is the most useful and recommended debugging tool?",
-    answers: ["alert(x);", "confirm(x);", "console.log(x);", "prompt(x);"],
-    correctAnswer: "console.log(x);",
-  };
-
-var document = {
-    question: "What is Document Object Model (DOM)?",
-    answers : [
-        "The data representation of the objects that comprise the structure and content of a document on the web",
-        "Read-only property of the document interface returns the document location as a string.",
-        "Returns the element that is the root element of the document",
-        "Abstract interface represents a Node object that contains characters. "
-    ],
-    correctAnswer: "The data representation of the objects that comprise the structure and content of a document on the web",
-};
 
 
 //array of questions
@@ -97,8 +42,8 @@ var quizArray = [
 
 //defining visibility will hide q&a, score and timer until game has started and finished
 
-scoreView.hidden = true;
-timerView.hidden= true;
+scoreView.hidden = false;
+timerView.hidden= false;
 questionView.hidden = true;
 
 
@@ -125,9 +70,7 @@ function beginQuiz(event) {
     footer.hidden = true;
     startButton.hidden = true;
     titleView.hidden = true;
-    firstQuestion = 0;
-    currentTime = 60;
-    score = 000; 
+    firstQuestion = 0; 
     questionView.hidden = false;
 
 
@@ -142,4 +85,21 @@ function beginQuiz(event) {
 
 }
 
+function setTime() {
+    //countdown begins
+    timeCounter = setInterval(function () {
+        currentTime--;
+        timerView.textContent = "Time: " + currentTime;
+
+        if (currentTime <= 0) {
+            clearInterval(timeCounter);
+            gameOver();
+        }
+
+        if (currentTime <= 10){
+            timerView.setAttribute("style", "box-shadow: 0px 5px 2px red");
+        }
+
+    }, 1000);
+}
 

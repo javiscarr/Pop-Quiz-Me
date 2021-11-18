@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/reset.css" />
+    <link rel="stylesheet" href="./assets/style.css" />
+
+    <title>Pop Quiz!!</title>
+  </head>
+  <body>
+      <!-- header -->
+  <header class="container">
+      <div class="header_area">
+
+         <!--main title at start-->
+         <div class="title_section" id="custom-header">
+            <h1 class="quiz_title">JavaScript Pop Quiz!!</h1>
+            
+        </div>
+
+        <!--timer section-->
+
+        <div class="timer_section" id="timer">
+            Time: 60
+         </div>
+
+        
+
+         <!--score display area-->
+         <div class="score_section" id="custom-score">
+             
+            Score: 000
+         
+        </div>
+      </div>
+  </header>
+
+  <!-- designated area for quiz to start with Q&A -->
+  <main>
+    <div class="quiz_container">
+        <!--start button area and will hide upon quiz starting-->
+        <div class="rounded_row">
+            <div class="rounded_col">
+                <button class="start_butn" id="start-button" type="button">
+                    
+                    START QUIZ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Area where questions with display-->
+    <div class="question_container" id="show-question">
+        <div class="rounded_row">
+            <div class="rounded_col">
+                <h2 class="" id="question"></h2>
+            </div>
+        </div>
+
+        <!--4 rows designated for answer choices-->
+        <div class="row">
+            <div class="col">
+                <p class="answer-item" id="answer1"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="answer-item" id="answer2"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="answer-item" id="answer3"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="answer-item" id="answer4"></p>
+            </div>
+        </div>
+    </div>
+  </main>
+
+  <section class="container" id="game-over">
+
+    <!--game score-->
+    <div class="row" id="game-over-pop">
+        <div class="col">
+            <span class="fun-score" id="game-over-score">
+
+            </span>
+        </div>
+    </div>
+
+    <!--enter name-->
+    <form id="user_name_frm">
+        <div class="form">
+            <span class="user-board">Enter Name:</span>
+            <div class="col">
+                <input type="text" class="form" id="userName"
+                placeholder="Your Name" />
+            </div>
+            <button type="button" class="" id="submit_btn">
+                Submit
+            </button>
+        </div>
+    </form>
+
+    <!--score board-->
+    <div class="row" id="score-board">
+        <div class="col">
+            <!--<hr class=""/>-->
+            <span class="color">Username -- // -- Score</span>
+            <ul id="scoreList" class=""></ul> 
+        </div>
+
+        <!--Clear Score and retake quiz options-->
+        <div class="row" id="take-over">
+            <span class="" id="clear">
+                Clear
+            </span>
+        </div>
+        <div class="col">
+            <span class="" id="retake">
+                Retake 
+            </span>
+        </div>
+
+    
+    </div>
+  </section>
+
+  <!--area designated for instructions and score list-->
+  <footer class="container" id="footer">
+      <div class="row">
+          <div class="col">
+              You will have 60 seconds to answer as many questions as you
+              can before the timer expires. <br />
+              Be mindful that EACH wrong answer with subtract time away!! <br />
+              GOOD LUCK!!!
+          </div>
+      </div>
+  </footer>
+  
+
+    <script src="./assets/script.js"></script>
+  </body>
+</html>
