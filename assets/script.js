@@ -65,3 +65,26 @@ var consoleLog = {
     answers: ["alert(x);", "confirm(x);", "console.log(x);", "prompt(x);"],
     correctAnswer: "console.log(x);",
   };
+
+var document = {
+    question: "What is Document Object Model (DOM)?",
+    answers : [
+        "The data representation of the objects that comprise the structure and content of a document on the web",
+        "Read-only property of the document interface returns the document location as a string.",
+        "Returns the element that is the root element of the document",
+        "Abstract interface represents a Node object that contains characters. "
+    ],
+    correctAnswer: "The data representation of the objects that comprise the structure and content of a document on the web",
+};
+
+
+//array of questions
+var quizArray = [
+    hyperText,
+    boolean,
+    css,
+    prevent,
+    consoleLog,
+    document,
+];
+
