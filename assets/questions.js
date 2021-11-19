@@ -1,4 +1,5 @@
-var questions = {
+const questions = [
+{
     
        question: "What does HTML stand for?",
        choices: 
@@ -56,4 +57,8 @@ var questions = {
         ],
         answer: "The data representation of the objects that comprise the structure and content of a document on the web",
     
-    };
+    }
+
+];
+
+    
