@@ -11,22 +11,28 @@
   </head>
   <body>
 
-    <div class="container" id="startPage">
+<!--Rules for the quiz-->
+    <div class="quiz_rules">
         <h2>JavaScript Pop Quiz!</h2><br>
-        <p>The timer will start once the START button is clicked. Please remember that incorrect answers will
-            subtract time from the clock.
-        </p>
-        <button class="start_btn" id="start" type = "button">START</button>
+        <div class = "quiz_name"><span>Quiz Instructions</span></div>
+        <div class = "rules_list">
+            <div class = "rules">1. Once the quiz begin, you will only have 60 seconds to answer as many questions as you can.</div>
+            <div class = "rules">2. You will receive points towards your score based on correct answers chosen.</div>
+            <div class = "rules">3. Time will be deducted for incorrect answers.</div>
+            <div class = "rules">4. You will not be able to choose an answer once the time runs out.</div>
+        </div>
+        <div class = "buttons">
+            <button class = "exit">Exit</button>
+            <button class = "start">Start</button>
+        </div>
     </div>
 
-
-    <div class="box" id="quiz"></div>
+    <div 
     <button type="button" class="submit" id="submitItem">Submit</button>
     <div class="results" id="finalResults"></div>
     
   
     <script src="./assets/questions.js"></script>
-    <script src="./assets/new.js"></script>
     <script src="./assets/script.js"></script>
     
   </body>
