@@ -10,6 +10,8 @@
     <title>Pop Quiz!!</title>
   </head>
   <body>
+      
+    <div class = "start_btn"><button>Start</button></div>
 
 <!--Rules for the quiz-->
     <div class="quiz_rules">
@@ -23,7 +25,7 @@
         </div>
         <div class = "buttons">
             <button class = "exit">Exit</button>
-            <button class = "start">Start</button>
+            <button class = "begin">Begin</button>
         </div>
     </div>
 
@@ -40,9 +42,42 @@
             <div class = "choices"></div>
         </section>
     </div>
+
     
-    <button type="button" class="submit" id="submitItem">Submit</button>
-    <div class="results" id="finalResults"></div>
+    <div class="results">
+        <span class="fun_score"></span>
+        <form id="user_name_frm">
+            <div class="form">
+                <span class="user-board">Enter Name:</span>
+                <div class="">
+                    <input type="text" class="form" id="userName"
+                    placeholder="Your Name" />
+                </div>
+                <button type="button" class="submit">
+                    Submit
+                </button>
+            </div>
+        </form>
+        <div class="scoreBoard">
+            <div class="userName">
+                 <!--<hr class=""/>-->
+                <span class="nameScore">Username -- // -- Score</span>
+                <ul class=""></ul> 
+            </div>
+    
+            <!--Clear Score and retake quiz options-->
+            <div class="takeOver" >
+                <span class="">
+                    Clear
+                </span>
+            </div>
+            <div class= "again">
+                <span class="retake">
+                    Retake 
+                </span>
+            </div>
+
+    </div>
     
   
     <script src="./assets/questions.js"></script>
