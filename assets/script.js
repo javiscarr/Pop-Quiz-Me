@@ -3,6 +3,7 @@ var showTimer = document.querySelector(".timer");
 var showTitle = document.querySelector(".title");
 var start_btn = document.querySelector(".start_button");
 var showQuestions = document.querySelector("questions");
+var quiz = document.querySelector(".questions");
 var showGameOver = document.querySelector(".game-over");
 /*var gameOverOverlay = document.querySelector("#overlay-background");*/
 var gameOverScore = document.querySelector(".game-over-score");
@@ -84,7 +85,7 @@ function setTime() {
         currentTime--;
         showTimer.textContent = "Time: " + currentTime;
 
-        if (currentTime <== 0) {
+        if (currentTime <= 0) {
             clearInterval(timeInterval);
             gameOverScore();
         }
@@ -95,6 +96,26 @@ function setTime() {
         
     }, 1000);
 }
+
+function renderQuestion (){
+    
+    if (activeQuestion >= questions.length){
+        gameOver();
+        return;
+    }
+
+quiz.textContent = questions[activeQuestion].question;
+
+var answerChoices = document.querySelectorAll("p");
+for (var i = 0; i < questions[activeQuestion].answers.length; i ++){
+    answerChoices[i].textContent = questions[activeQuestion].answers[i];
+}
+
+}
+
+
+
+
 
 const retake = results.querySelector(".buttons .retake");
 const exit = results.querySelector(".buttons .exit");
