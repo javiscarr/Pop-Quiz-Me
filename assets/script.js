@@ -113,7 +113,48 @@ for (var i = 0; i < questions[activeQuestion].answers.length; i ++){
 
 }
 
+function validate(event) {
+    event.preventDefault();
 
+    var thisChoice = event.target;
+
+    var timeOutId = 0;
+
+    if (
+
+        thisChoice.textContent === questions[activeQuestion].correctAnswer
+    ) {
+
+        thisChoice.setAttribute (
+
+            "style",
+            "background-color: green; color: white;"
+        );
+    
+            score = score + 250;
+            activeQuestion++; 
+
+            showScore.textContent = "Score: " + score;
+            showScore.setAttribute (
+                "style", "background-color: green; color white"
+            );
+
+
+            timeOutId = window.setTimeout(renderQuestion, 700);         
+            
+    } else {
+
+        thisChoice.setAttribute (
+            "style","background-color: red; color: white" 
+        );
+
+        showTimer.setAttribute("style", "background-color: yellow; color: white");
+        currentTime = currentTime - 5;
+        activeQuestion++;
+
+        timeOutId = window.setTimeout(renderQuestion, 700);
+    }
+}
 
 
 
