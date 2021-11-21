@@ -5,30 +5,15 @@ var start_btn = document.querySelector(".start_button");
 var showQuestions = document.querySelector("questions");
 var quiz = document.querySelector(".questions");
 var showGameOver = document.querySelector(".game-over");
-/*var gameOverOverlay = document.querySelector("#overlay-background");*/
 var gameOverScore = document.querySelector(".game-over-score");
-/*var gameOverSplash = document.querySelector("#game-over-splash");*/
 var userNameInput = document.querySelector(".name-input");
 var userName = document.querySelector(".userName");
 var showHighScore = document.querySelector(".high-score");
-/*var dynamicList = document.querySelector("#dynamic-list");*/
 var submit = document.querySelector(".submit-button");
 var retake = document.querySelector(".take-again");
 var removeHighScores = document.querySelector(".clear-scores");
-var retakeQuiz = document.querySelector("#retake-quiz");
-var footer = document.querySelector("#footer");
-
-
-const start_btn = document.querySelector(".start_btn");
-const quiz_rules = document.querySelector(".quiz_rules");
-const exit = quiz_rules.querySelector(".buttons .exit");
-const begin = quiz_rules.querySelector(".buttons .begin");
-const quiz_area = document.querySelector("quiz_area");
-const results = document.querySelector(".results");
-const choices = document.querySelector(".choices");
-const timeClock = document.querySelector(".timer .timeRemaining");
-const counter = document.querySelector(".timer .timer_count");
-const quizQuestion = document.querySelector(".questions");
+var retakeQuiz = document.querySelector(".retake-quiz");
+var dynamicList = document.querySelector(".dynamic-list");
 
 
 
@@ -51,7 +36,7 @@ function init() {
 
     var storedScoreBoard = JSON.parse(localStorage.getItem("scoreBoard"));
 
-    if (storedScoreBoard !=== null) {
+    if (storedScoreBoard !== null) {
 
         scoreBoard = storedScoreBoard;
     }
@@ -156,31 +141,74 @@ function validate(event) {
     }
 }
 
+function gameOver(){
+    showGameOver.hidden = false;
+    userNameInput.hidden = false;
+    removeHighScores.hidden = false;
+    retakeQuiz.hidden = false;
+    showHighScore.hidden = false;
 
+clearInterval(timeInterval);
 
-const retake = results.querySelector(".buttons .retake");
-const exit = results.querySelector(".buttons .exit");
+gameOverScore.textContent= "Game Over!! You achieved a score of " + score + "!";
+}
 
-retake.onclick = function () {
-    quiz_area.classList.add("activeQuiz");
-    results.classList.remove("activeResult");
-    timeValue = 60;
-    ques_count = 0;
-    currentQuestion = 0;
-    userScore = 0;
-    widthValue = 0;
-    showQuestions(ques_count);
-    quesCounter(ques_numb);
-    clearInterval(counter);
-    startTimer(timeValue);
-    timeClock.textContent = "Time Remaining:";
+function renderScoreBoard() {
 
+    dynamicList.innerHTML = "";
+
+    for (var i = 0; i < scoreBoard.length; i++) {
+        var storedScores = scoreBoard[i];
+        var li = document.createElement("li");
+        li.textContent = scoreBoard[i].name + " -- || --" + scoreBoard[i].highScore;
+        dynamicList.appendChild(li);
+    }
+}
+
+function submitScores(event) {
+    event.preventDefault();
+
+    var user = userName.ariaValueMax.trim();
+
+    userName.value = "";
+    if (user === "") {
+        return;
+    }
+    var personScore = { 
+        name: user,
+        highScore: score,
+    };
     
+    scoreBoard.push(personScore);
+
+    storedScores();
+    userNameInput.hidden = true;
+    showHighScore.hidden. false;
+    retakeQuiz.hidden = false;
+    renderScoreBoard();
 }
 
-exit.onclick = function () {
-    window.location.reload();
+function clearScores(event) {
+
+    event.preventDefault();
+    dynamicList.innerHTML = "";
+    localStorage.clear();
+    scoreBoard = [];
 
 }
 
-quizQuestion.textContent = questions[]
+start_btn.addEventListener("mouseup", beginQuiz);
+answerChoices.addEventListener("click", validate);
+submit.addEventListener("click", submitScores);
+userNameInput.addEventListener("submit", submitScores);
+removeHighScores.addEventListener("mouseup", clearScores);
+
+retakeQuiz.addEventListener("mouseup", function (event) {
+    event.preventDefault();
+    showGameOver.hidden = true;
+    showQuestions.hidden = true;
+    showScore.hidden = true;
+    showTimer.hidden = true;
+    showTitle.hidden = false;
+    start_btn.hidden = false;
+});
