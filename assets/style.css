@@ -11,88 +11,11 @@ body {
     font-size: 20px;
 
   }
-  
-  button {
-    padding: 10px;
-    margin: 24px;
-    cursor: pointer;
-    font-size: 24px;
-    background-color:#66806A;
-    color: white;
-  }
 
-  .button {
-    position: absolute;
-}
-
-#custom-header {
-    background-color: #B4C6A6;
-    border: 1px solid ;
-    font-size: 30px;
-    text-align: center;
-    
-    
-}
-
-#start-button {
-    display: block;
-    width: 25%;
-    height: 25%;
-    text-align: center;
-    font-size: 25px;
-    position: relative;
-      
-
-}
-
-
-
-
-
-  
-  .container {
-    display: block;
-    margin: 80px auto;
-    text-align: center;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    width: 60vw;
-    background-color: #f0ead6;
-    border-radius: 5px;
-  }
-  
-  .quiz_container {
-
-    display: block;
-    margin: 80px auto;
-    text-align: center;
-    width: 60vw;
-    border-radius: 5px;
-  }
-  
-
-
-  .start_btn {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-  }
-
-  
-  /* start button styling*/
-
-  .start_btn button {
-      font-size: 25px;
-      font-weight: 500;
-      padding: 15px 30px;
-      outline: none;
-      border: none;
-      border-radius: 5px;
-      background-color: #66806A;
-      cursor: pointer;
+  ::selection{
+    color: #fff;
+    background: gray;
 
   }
-
-
- 
+  
+  
