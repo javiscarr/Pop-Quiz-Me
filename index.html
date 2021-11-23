@@ -10,75 +10,20 @@
     <title>Pop Quiz!!</title>
   </head>
   <body>
+      <div class="panel">
+          <div class="result">
 
-<!--Rules for the quiz-->
-    <div class="quiz_rules">
-        <h2>JavaScript Pop Quiz!</h2><br>
-        <div class = "quiz_name"><span>Quiz Instructions</span></div>
-        <div class = "rules_list">
-            <div class = "rules">1. Once the quiz begin, you will only have 60 seconds to answer as many questions as you can.</div>
-            <div class = "rules">2. You will receive points towards your score based on correct answers chosen.</div>
-            <div class = "rules">3. Time will be deducted for incorrect answers.</div>
-            <div class = "rules">4. You will not be able to choose an answer once the time runs out.</div>
-        </div>
-        <div class = "buttons">
-            <button class = "exit">Exit</button>
-            <button class = "begin">Begin</button>
-        </div>
-    </div>
+          </div>
+          <div class= "question-are" id="question">
 
-    <div class = "quiz_area">
-        <header>
-            <div class = "timer">
-                <div class = "time_remaining">Time Remaining:</div>
-                <div class = "timer_count">60</div>
-            </div>
-        </header>
-        <section>
-            <div class = "question"></div>
-            <div class = "choices"></div>
-        </section>
-    </div>
+          </div>
+          <div class="choice-area">
+              <button class="choice" onclick="" id="choice1"></button>
+          </div>
+      </div>
 
-    
-    <div class="results">
-        <span class="fun_score"></span>
-        <form id="user_name_frm">
-            <div class="form">
-                <span class="user-board">Enter Name:</span>
-                <div class="">
-                    <input type="text" class="form" id="userName"
-                    placeholder="Your Name" />
-                </div>
-                <button type="button" class="submit">
-                    Submit
-                </button>
-            </div>
-        </form>
-        <div class="scoreBoard">
-            <div class="userName">
-                 <!--<hr class=""/>-->
-                <span class="nameScore">Username -- // -- Score</span>
-                <ul class=""></ul> 
-            </div>
-    
-            <!--Clear Score and retake quiz options-->
-            <div class="takeOver" >
-                <span class="" id="">
-                    Clear
-                </span>
-            </div>
-            <div class="col">
-                <span class="" id="retake">
-                    Retake 
-                </span>
-            </div>
-
-    </div>
     
   
-    <script src="./assets/questions.js"></script>
-    <script src="./assets/script.js"></script>
     
   </body>
 </html>
