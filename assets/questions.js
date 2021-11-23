@@ -1,4 +1,4 @@
-const questions = [
+let questions = [
 {
     
        question: "What does HTML stand for?",
@@ -7,16 +7,20 @@ const questions = [
             "HyperTension Marking Language",
             "HyperText MakeUp Language",
             "HyperText MarkUp Lagoon"],
+
             
         answer: "HyperText MarkUp Language",
-    
+    },
 
+{
     
        question: "What data type does var x represent? x = true",
        choices: ["String", "Bit", "Boolean", "Object"],
        answer: "Boolean",
 
-    
+    },
+
+{
 
         question: "What is a Cascading Spread Sheet (CSS)?",
         choices: [
@@ -27,8 +31,9 @@ const questions = [
     
         answer: "A language of style rules that we use to apply styling to our HTML content",
     
-    
-     
+    },
+
+{
         question:
           "Which function should we call after a submit event to prevent data loss?",
         choices: [
@@ -38,15 +43,18 @@ const questions = [
           "event.preventDefault();"
         ],
         answer: "event.preventDefault();",
+    },
     
-
+{
 
      
         question: "Which expression is the most useful and recommended debugging tool?",
         choices: ["alert(x);", "confirm(x);", "console.log(x);", "prompt(x);"],
         answer: "console.log(x);",
       
-    
+    },
+
+{
      
         question: "What is Document Object Model (DOM)?",
         choices : [
@@ -57,7 +65,7 @@ const questions = [
         ],
         answer: "The data representation of the objects that comprise the structure and content of a document on the web",
     
-    }
+    },
 
 ];
 
