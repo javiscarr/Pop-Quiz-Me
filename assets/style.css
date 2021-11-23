@@ -1,3 +1,10 @@
+:root {
+
+--peach:  #FFC286;
+--green: #66806A;
+
+}
+
 
 * {
     margin: 0;
@@ -6,8 +13,8 @@
     
 }
 body {
-    background-color: #FFC286;
-    color: #66806A;
+    background-color: wheat;
+    color: var(--green);
     font-size: 20px;
 
   }
@@ -17,5 +24,46 @@ body {
     background: gray;
 
   }
+
+.start_btn,
+.information_area,
+.quiz_area,
+.score_area{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+                0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.information_area.activeInfo,
+.quiz_area.activeQuiz,
+.score_area.activeScore{
+    opacity: 1;
+    z-index: 5;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+.start_btn button{
+    font-size: 25px;
+    font-weight: 500;
+    color: white;
+    padding: 15px 30px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background: var(--green);
+    cursor: pointer;
+}
+.information_area{
+    width: 540px;
+    color: white;
+    background: var(--green);
+    border-radius: 5px;
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
   
   
