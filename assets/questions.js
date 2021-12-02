@@ -1,4 +1,4 @@
-let questions = [
+ var questions = [
 {
     
        question: "What does HTML stand for?",
@@ -69,4 +69,76 @@ let questions = [
 
 ];
 
-    
+// Declared variables
+var score = 0;
+var questionIndex = 0;
+
+// Start working code 
+// Declared variables
+var currentTime = document.querySelector("#currentTime");
+var timer = document.querySelector("#startTime");
+var questionsDiv = document.querySelector("#questionsDiv");
+var container = document.querySelector("#container");
+
+// Seconds left is 12 seconds per question:
+var secondsLeft = 76;
+// Holds interval time
+var holdInterval = 0;
+// Holds penalty time
+var deduction = 5;
+// Creates new element
+var ulCreate = document.createElement("ul");
+
+
+// Triggers timer on button, shows user a display on the screen
+timer.addEventListener("click", function () {
+    // We are checking zero because its originally set to zero
+    if (holdInterval === 0) {
+        holdInterval = setInterval(function () {
+            secondsLeft--;
+            currentTime.textContent = "Time: " + secondsLeft;
+
+            if (secondsLeft <= 0) {
+                clearInterval(holdInterval);
+                allDone();
+                currentTime.textContent = "Out of time!";
+            }
+        }, 1000);
+    }
+    render(questionIndex);
+});
+
+// Renders questions and choices to page: 
+function render(questionIndex) {
+    // Clears existing data 
+    questionsDiv.innerHTML = "";
+    ulCreate.innerHTML = "";
+    // For loops to loop through all info in array
+    for (var i = 0; i < questions.length; i++) {
+        // Appends question title only
+        var userQuestion = questions[questionIndex].question;
+        var userChoices = questions[questionIndex].choices;
+        questionsDiv.textContent = userQuestion;
+    }
+    // New for each for question choices
+    userChoices.forEach(function (newItem) {
+        var listItem = document.createElement("li");
+        listItem.textContent = newItem;
+        questionsDiv.appendChild(ulCreate);
+        ulCreate.appendChild(listItem);
+        listItem.addEventListener("click", (compare));
+    })
+}
+// Renders questions and choices to page: 
+function render(questionIndex) {
+    // Clears existing data 
+    questionsDiv.innerHTML = "";
+    ulCreate.innerHTML = "";
+    // For loops to loop through all info in array
+    for (var i = 0; i < questions.length; i++) {
+        // Appends question title only
+        var userQuestion = questions[questionIndex].title;
+        var userChoices = questions[questionIndex].choices;
+        questionsDiv.textContent = userQuestion;
+    }
+   
