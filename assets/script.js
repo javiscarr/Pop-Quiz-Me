@@ -76,7 +76,7 @@ next_btn.onclick = ()=>{
 }
 // getting questions and options from array
 function showQuestions(index){
-    const que_text = document.querySelector(".que_text");
+    const question_text = document.querySelector(".que_text");
     //creating a new span and div tag for question and option and passing the value using array index
     let question_tag = '<span>'+ questions[index].numb + ". " + questions[index].question +'</span>';
     let choice_tag = '<div class="choice"><span>'+ questions[index].choice[0] +'</span></div>'
@@ -94,3 +94,17 @@ function showQuestions(index){
         choice[i].setAttribute("onclick", "choiceSelected(this)");
     }
 }
+
+function choiceChosen(answer){
+    clearInterval(counter); //clear counter
+    let userChoice = answer.textContent; //getting user selected option
+    let correctAnswer = questions[question_count].answer; //getting correct answer from array
+    const everyChoice = choice_list.children.length; //getting all option items
+    
+    if(userChoice == correctAnswer){ //if user selected option is equal to array's correct answer
+        userScore += 1; //upgrading score value with 1
+        answer.classList.add("correct"); //adding green color to correct selected option
+        console.log("Correct Answer");
+    }else{
+        answer.classList.add("incorrect"); //adding red color to correct selected option
+        console.log("Wrong Answer");
