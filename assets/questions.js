@@ -176,10 +176,10 @@ function answerCheck(event) {
   if (questions[questionCount].answer === event.target.value) {
     p.textContent = "Correct!";
   } else if (questions[questionCount].answer !== event.target.value) {
-    secondsLeft = secondsLeft - 10;
+   secondsLeft = secondsLeft - 10;
     p.textContent = "Wrong!";
   }
-  console.log(answerCheck);
+ 
 
   // increment so the questions index is increased
   if (questionCount < questions.length) {
