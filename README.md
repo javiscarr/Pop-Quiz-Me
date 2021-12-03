@@ -31,7 +31,5 @@ Users will be able to take a knowledge test of their Javascript expertise. A que
 
 ## Screenshot
 
-```md
-![alt text](assets/images/quiz1.jpg)
-```
+<img src = "assets/images/quiz1.jpg">
 
