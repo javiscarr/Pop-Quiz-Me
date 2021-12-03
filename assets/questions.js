@@ -1,7 +1,7 @@
 // variables for page elements
 // time and score
 let timeEl = document.querySelector("p.time");
-let secondsLeft = 75;
+let secondsLeft = 90;
 let scoreEl = document.querySelector("#score");
 
 // section intro
@@ -61,63 +61,63 @@ const questions = [
   {
     question: "What does HTML stand for?",
     choices: [
-      "HyperText MarkUp Language",
-      "HyperTension Marking Language",
-      "HyperText MakeUp Language",
-      "HyperText MarkUp Lagoon",
+      "a. HyperText MarkUp Language",
+      "b. HyperTension Marking Language",
+      "c. HyperText MakeUp Language",
+      "d. HyperText MarkUp Lagoon",
     ],
 
-    answer: "HyperText MarkUp Language",
+    answer: "a",
   },
 
   {
     question: "What data type does var x represent? x = true",
-    choices: ["String", "Bit", "Boolean", "Object"],
-    answer: "Boolean",
+    choices: ["a. String", "b. Bit", "c. Boolean", "d. Object"],
+    answer: "c",
   },
 
   {
     question: "What is a Cascading Spread Sheet (CSS)?",
     choices: [
-      "A language of status rules that allows the developer to change the content of HTML",
-      "A scripting language that enables you to create dynamically updating content, control multimedia, animate images, and pretty much everything else",
-      "A language of style rules that we use to apply styling to our HTML content",
-      "A language that we use to structure and give meaning to our web content",
+      "a. A language of status rules that allows the developer to change the content of HTML",
+      "b. A scripting language that enables you to create dynamically updating content, control multimedia, animate images, and pretty much everything else",
+      "c. A language of style rules that we use to apply styling to our HTML content",
+      "d. A language that we use to structure and give meaning to our web content",
     ],
 
     answer:
-      "A language of style rules that we use to apply styling to our HTML content",
+      "c",
   },
 
   {
     question:
       "Which function should we call after a submit event to prevent data loss?",
     choices: [
-      "event.onLoad();",
-      "event.preventRefresh();",
-      "event.stopLoad();",
-      "event.preventDefault();",
+      "a. event.onLoad();",
+      "b. event.preventRefresh();",
+      "c. event.stopLoad();",
+      "d. event.preventDefault();",
     ],
-    answer: "event.preventDefault();",
+    answer: "d",
   },
 
   {
     question:
       "Which expression is the most useful and recommended debugging tool?",
-    choices: ["alert(x);", "confirm(x);", "console.log(x);", "prompt(x);"],
-    answer: "console.log(x);",
+    choices: ["a. alert(x);", "b. confirm(x);", "c. console.log(x);", "d. prompt(x);"],
+    answer: "c",
   },
 
   {
     question: "What is Document Object Model (DOM)?",
     choices: [
-      "The data representation of the objects that comprise the structure and content of a document on the web",
-      "Read-only property of the document interface returns the document location as a string.",
-      "Returns the element that is the root element of the document",
-      "Abstract interface represents a Node object that contains characters. ",
+      "a. The data representation of the objects that comprise the structure and content of a document on the web",
+      "b. Read-only property of the document interface returns the document location as a string.",
+      "c. Returns the element that is the root element of the document",
+      "d. Abstract interface represents a Node object that contains characters. ",
     ],
     answer:
-      "The data representation of the objects that comprise the structure and content of a document on the web",
+      "a",
   },
 ];
 
@@ -179,6 +179,7 @@ function answerCheck(event) {
     secondsLeft = secondsLeft - 10;
     p.textContent = "Wrong!";
   }
+  console.log(answerCheck);
 
   // increment so the questions index is increased
   if (questionCount < questions.length) {
@@ -260,7 +261,7 @@ submitScrBtn.addEventListener("click", addScore);
 backBtn.addEventListener("click", function (){
     highscoresEl.style.display = "none";
     introEl.style.display = "block";
-    secondsLeft = 75;
+    secondsLeft = 90;
     timeEl.textContent = `Time:${secondsLeft}s`;
 });
 
