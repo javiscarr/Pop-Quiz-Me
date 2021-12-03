@@ -170,3 +170,32 @@ function compare(event) {
         }
 
     }
+    // Question Index determines number question user is on
+    questionIndex++;
+
+    if (questionIndex >= questions.length) {
+        //  will append last page with user stats
+        done();
+        createDiv.textContent = "End of quiz!" + " " + "Your answered  " + score + "/" + questions.length + " Correct!";
+    } else {
+        render(questionIndex);
+    }
+    questionsDiv.appendChild(createDiv);
+
+}
+//  will append last page
+function done() {
+    questionsDiv.innerHTML = "";
+    currentTime.innerHTML = "";
+
+    // Heading:
+    var createH1 = document.createElement("h1");
+    createH1.setAttribute("id", "createH1");
+    createH1.textContent = "All Done!";
+    questionsDiv.appendChild(createH1);
+
+    // Paragraph
+    var createP = document.createElement("p");
+    createP.setAttribute("id", "createP");
+
+    questionsDiv.appendChild(createP);
