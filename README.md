@@ -31,5 +31,5 @@ Users will be able to take a knowledge test of their Javascript expertise. A que
 
 ## Screenshot
 
-![quizHomepage][quiz1.JPG]
+![quizHomepage](quiz1.JPG)
 
