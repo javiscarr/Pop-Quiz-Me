@@ -31,5 +31,19 @@ Users will be able to take a knowledge test of their Javascript expertise. A que
 
 ## Screenshot
 
+This is the first page users will see to begin the quiz. Directions are given with a start button that is clickable.
+
 ![quizHomepage](assets/images/quiz1.JPG)
+
+Questions will populate and give the user answer choices to choose from. Each correct answer should display a correct answer message and similarly for incorrect answers.
+
+![quizQuestion](assets/images/quiz2.JPG)
+
+Here the user will have the ability to record their scores with the user's initials. 
+
+![quizOver](assets/images/quiz3.JPG)
+
+An array of scores will be listed here with initials for each score. The user will have the option to clear the scores or to retake the quiz.
+
+![quizScore](assets/images/quiz4.JPG)
 
