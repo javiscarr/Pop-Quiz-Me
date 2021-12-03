@@ -32,8 +32,6 @@ Users will be able to take a knowledge test of their Javascript expertise. A que
 ## Screenshot
 
 ```md
-
-![screenshot](assets/images/quiz1.jpg)
-
+![alt text](assets/images/quiz1.jpg)
 ```
 
