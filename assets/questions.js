@@ -69,24 +69,7 @@
 
 ];
 
-// if startQuiz button clicked
-start_btn.onclick = ()=>{
-    information_area.classList.add("activeInfo"); //show information area
-}
-// if exitQuiz button clicked
-exit_btn.onclick = ()=>{
-    information_area.classList.remove("activeInfo"); // this will hide information area
-}
 
-// if continueQuiz button clicked
-continue_btn.onclick = ()=>{
-    information_area.classList.remove("activeInfo"); //hide info box
-    quiz_area.classList.add("activeQuiz"); //show quiz box
-    showQuestions(0); //calling showQuestions function
-    questionCounter(1); //passing 1 parameter to queCounter
-    startTimer(15); //calling startTimer function
-    
-}
 
 // Declared variables
 var score = 0;
