@@ -1,4 +1,58 @@
- var questions = [
+ // variables for page elements
+// time and score
+let timeEl = document.querySelector("p.time");
+let secondsLeft = 75;
+let scoreEl = document.querySelector("#score");
+
+// sections
+// section intro
+const introEl = document.querySelector("#intro");
+
+// section questions
+//question section
+const questionsEl = document.querySelector("#questions");
+//where question goes
+let questionEl = document.querySelector("#question");
+// how many questions they have answered
+let questionCount = 0;
+// div yaynay
+const rightWrongEl = document.querySelector("#rightWrong");
+
+// section final
+const finalEl = document.querySelector("#final");
+// user initials
+let initialsInput = document.querySelector("#initials");
+// section highscores
+const highscoresEl = document.querySelector("#highscores");
+// ordered list
+let scoreListEl = document.querySelector("#score-list");
+// array of scores
+let scoreList = [];
+
+// buttons
+// start
+const startBtn = document.querySelector("#start");
+// answer button class
+const ansBtn = document.querySelectorAll("button.ansBtn")
+// answer1
+const ans1Btn = document.querySelector("#answer1");
+// answer2
+const ans2Btn = document.querySelector("#answer2");
+// answer3
+const ans3Btn = document.querySelector("#answer3");
+// answer4
+const ans4Btn = document.querySelector("#answer4");
+// submit-score
+const submitScrBtn = document.querySelector("#submit-score");
+// goback
+const goBackBtn = document.querySelector("#goback");
+// clearscores
+const clearScrBtn = document.querySelector("#clearscores");
+// view-scores
+const viewScrBtn = document.querySelector("#view-scores");
+
+ //object array
+ const questions = [ 
 {
     
        question: "What does HTML stand for?",
@@ -69,195 +123,19 @@
 
 ];
 
+// Functions
 
+// timer
+function setTime() {
+    let timerInterval = setInterval(function () {
+        secondsLeft--;
+        timeEl.textContent = `Time:${secondsLeft}s`;
 
-// Declared variables
-var score = 0;
-var questionIndex = 0;
-
-// Start working code 
-// Declared variables
-var currentTime = document.querySelector("#currentTime");
-var timer = document.querySelector("#startTime");
-var questionsDiv = document.querySelector("#questionsDiv");
-var container = document.querySelector("#container");
-
-// Seconds left is 12 seconds per question:
-var secondsLeft = 76;
-// Holds interval time
-var holdInterval = 0;
-// Holds penalty time
-var deduction = 5;
-// Creates new element
-var ulCreate = document.createElement("ul");
-
-
-// Triggers timer on button, shows user a display on the screen
-timer.addEventListener("click", function () {
-    // We are checking zero because its originally set to zero
-    if (holdInterval === 0) {
-        holdInterval = setInterval(function () {
-            secondsLeft--;
-            currentTime.textContent = "Time: " + secondsLeft;
-
-            if (secondsLeft <= 0) {
-                clearInterval(holdInterval);
-                allDone();
-                currentTime.textContent = "Out of time!";
-            }
-        }, 1000);
-    }
-    render(questionIndex);
-});
-
-// Renders questions and choices to page: 
-function render(questionIndex) {
-    // Clears existing data 
-    questionsDiv.innerHTML = "";
-    ulCreate.innerHTML = "";
-    // For loops to loop through all info in array
-    for (var i = 0; i < questions.length; i++) {
-        // Appends question title only
-        var userQuestion = questions[questionIndex].question;
-        var userChoices = questions[questionIndex].choices;
-        questionsDiv.textContent = userQuestion;
-    }
-    // New for each for question choices
-    userChoices.forEach(function (newItem) {
-        var listItem = document.createElement("li");
-        listItem.textContent = newItem;
-        questionsDiv.appendChild(ulCreate);
-        ulCreate.appendChild(listItem);
-        listItem.addEventListener("click", (compare));
-    })
-}
-// Renders questions and choices to page: 
-function render(questionIndex) {
-    // Clears existing data 
-    questionsDiv.innerHTML = "";
-    ulCreate.innerHTML = "";
-    // For loops to loop through all info in array
-    for (var i = 0; i < questions.length; i++) {
-        // Appends question title only
-        var userQuestion = questions[questionIndex].title;
-        var userChoices = questions[questionIndex].choices;
-        questionsDiv.textContent = userQuestion;
-    }
-    // New for each for question choices
-    userChoices.forEach(function (newItem) {
-        var listItem = document.createElement("li");
-        listItem.textContent = newItem;
-        questionsDiv.appendChild(ulCreate);
-        ulCreate.appendChild(listItem);
-        listItem.addEventListener("click", (compare));
-    })
-}
-// Event to compare choices with answer
-function compare(event) {
-    var element = event.target;
-
-    if (element.matches("li")) {
-
-        var createDiv = document.createElement("div");
-        createDiv.setAttribute("id", "createDiv");
-        // Correct condition 
-        if (element.textContent == questions[questionIndex].answer) {
-            score++;
-            createDiv.textContent = "Correct! The answer is:  " + questions[questionIndex].answer;
-            // Correct condition 
-        } else {
-            // Will deduct -5 seconds off secondsLeft for wrong answers
-            secondsLeft = secondsLeft - deduction;
-            createDiv.textContent = "Wrong! The correct answer is:  " + questions[questionIndex].answer;
+        if (secondsLeft === 0 || questionCount === questions.length) {
+            clearInterval(timerInterval);
+            questionsEl.style.display = "none";
+            finalEl.style.display = "block";
+            scoreEl.textContent = secondsLeft;
         }
-
-    }
-    // Question Index determines number question user is on
-    questionIndex++;
-
-    if (questionIndex >= questions.length) {
-        //  will append last page with user stats
-        done();
-        createDiv.textContent = "End of quiz!" + " " + "Your answered  " + score + "/" + questions.length + " Correct!";
-    } else {
-        render(questionIndex);
-    }
-    questionsDiv.appendChild(createDiv);
-
+    }, 1000);
 }
-//  will append last page
-function done() {
-    questionsDiv.innerHTML = "";
-    currentTime.innerHTML = "";
-
-    // Heading:
-    var createH1 = document.createElement("h1");
-    createH1.setAttribute("id", "createH1");
-    createH1.textContent = "All Done!";
-    questionsDiv.appendChild(createH1);
-
-    // Paragraph
-    var createP = document.createElement("p");
-    createP.setAttribute("id", "createP");
-
-    questionsDiv.appendChild(createP);
-
-     // Calculates time remaining and replaces it with score
-     if (secondsLeft >= 0) {
-        var timeRemaining = secondsLeft;
-        var createP2 = document.createElement("p");
-        clearInterval(holdInterval);
-        createP.textContent = "Your final score is: " + timeRemaining;
-
-        questionsDiv.appendChild(createP2);
-    }
-      // Label
-      var createLabel = document.createElement("label");
-      createLabel.setAttribute("id", "createLabel");
-      createLabel.textContent = "Enter your initials: ";
-  
-      questionsDiv.appendChild(createLabel);
-  
-      // input
-      var createInput = document.createElement("input");
-      createInput.setAttribute("type", "text");
-      createInput.setAttribute("id", "initials");
-      createInput.textContent = "";
-  
-      questionsDiv.appendChild(createInput);
-}
-  // submit
-  var createSubmit = document.createElement("button");
-  createSubmit.setAttribute("type", "submit");
-  createSubmit.setAttribute("id", "Submit");
-  createSubmit.textContent = "Submit";
-
-  questionsDiv.appendChild(createSubmit);
-
-  // Event listener to capture initials and local storage for initials and score
-  createSubmit.addEventListener("click", function () {
-      var initials = createInput.value;
-
-      if (initials === null) {
-
-          console.log("No value entered!");
-
-      } else {
-          var finalScore = {
-              initials: initials,
-              score: timeRemaining
-          }
-          console.log(finalScore);
-          var allScores = localStorage.getItem("allScores");
-          if (allScores === null) {
-              allScores = [];
-          } else {
-              allScores = JSON.parse(allScores);
-          }
-          allScores.push(finalScore);
-          var newScore = JSON.stringify(allScores);
-          localStorage.setItem("allScores", newScore);
-          // Travels to final page
-          window.location.replace("./HighScores.html");
-      }
-  });
