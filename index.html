@@ -11,69 +11,25 @@
 </head>
 <body>
 
-
-    <!-- start Quiz button -->
-    <div class="start_btn"><button>Start Quiz</button></div>
-
-
-
-    <!--Area for rules -->
-    <div class="information_area">
-        <div class="information_header"><span>Standard rules for the pop quiz</span></div>
-        <div class="information-list">
-            <div class="rules">1. You will have only <span>60 seconds</span> to answer as many questions.</div>
-            <div class="rules">2. Time will be deducted for each incorrect answer.</div>
-            <div class="rules">3. You can't select any option once time goes off.</div>
-            <div class="rules">4. Timer will start once the quiz begins.</div>
-            <div class="rules">5. You'll earn points based on correct answers.</div>
+ <!-- Container for Header -->
+ <header class="container-fluid mb-5">
+    <!-- div for scores link and time -->
+    <div class="row">
+        <!-- View highscores -->
+        <div class="col-6">
+            <!-- <a href="">View Highscores</a> -->
+            <button id="view-scores" type="button" class="btn btn-secondary d-inline-block mt-1">View High Scores</button>
         </div>
-        <div class="buttons">
-            <button class="quit">Exit Quiz</button>
-            <button class="restart">Continue</button>
+        <!-- Timer -->
+        <div class="col-6">
+            <p class="d-flex justify-content-end time">Time:75s</p>
         </div>
     </div>
+</header>
 
-     <!-- Quiz Area -->
-     <div class="quiz_area">
-        <header>
-            <div class="title">JavaScript Pop Quiz Me!!</div>
-            <div class="timer">
-                <div class="time_left">Time Left: </div>
-                <div class="timer_sec">60</div>
-            </div>
-            
-        </header>
-        <section>
-            <div class="question_area">
-                <!--Area where Javascript questions will appear -->
-            </div>
-            <div class="choice_list">
-                <!-- Area for answer choices -->
-            </div>
-        </section>
 
-        
-         <footer>
-            
-            <button class="next_btn">Next Question</button>
-        </footer>
-    </div>
-
-    <!-- Score Area -->
-    <div class="score_area">
-        
-        <div class="quiz_complete">Congratulations you've finished the Quiz!</div>
-        <div class="score_text">
-            <!-- Area designated for score to display -->
-        </div>
-        <div class="buttons">
-            <button class="restart">Replay Quiz</button>
-            <button class="quit">Quit Quiz</button>
-        </div>
-    </div>
-
-      
-    <script src="assets/questions.js"></script>
+     
+   
     <script src="assets/script.js"></script>
 
 </body>

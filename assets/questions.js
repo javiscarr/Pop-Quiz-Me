@@ -69,6 +69,25 @@
 
 ];
 
+// if startQuiz button clicked
+start_btn.onclick = ()=>{
+    information_area.classList.add("activeInfo"); //show information area
+}
+// if exitQuiz button clicked
+exit_btn.onclick = ()=>{
+    information_area.classList.remove("activeInfo"); // this will hide information area
+}
+
+// if continueQuiz button clicked
+continue_btn.onclick = ()=>{
+    information_area.classList.remove("activeInfo"); //hide info box
+    quiz_area.classList.add("activeQuiz"); //show quiz box
+    showQuestions(0); //calling showQuestions function
+    questionCounter(1); //passing 1 parameter to queCounter
+    startTimer(15); //calling startTimer function
+    
+}
+
 // Declared variables
 var score = 0;
 var questionIndex = 0;
@@ -199,3 +218,63 @@ function done() {
     createP.setAttribute("id", "createP");
 
     questionsDiv.appendChild(createP);
+
+     // Calculates time remaining and replaces it with score
+     if (secondsLeft >= 0) {
+        var timeRemaining = secondsLeft;
+        var createP2 = document.createElement("p");
+        clearInterval(holdInterval);
+        createP.textContent = "Your final score is: " + timeRemaining;
+
+        questionsDiv.appendChild(createP2);
+    }
+      // Label
+      var createLabel = document.createElement("label");
+      createLabel.setAttribute("id", "createLabel");
+      createLabel.textContent = "Enter your initials: ";
+  
+      questionsDiv.appendChild(createLabel);
+  
+      // input
+      var createInput = document.createElement("input");
+      createInput.setAttribute("type", "text");
+      createInput.setAttribute("id", "initials");
+      createInput.textContent = "";
+  
+      questionsDiv.appendChild(createInput);
+}
+  // submit
+  var createSubmit = document.createElement("button");
+  createSubmit.setAttribute("type", "submit");
+  createSubmit.setAttribute("id", "Submit");
+  createSubmit.textContent = "Submit";
+
+  questionsDiv.appendChild(createSubmit);
+
+  // Event listener to capture initials and local storage for initials and score
+  createSubmit.addEventListener("click", function () {
+      var initials = createInput.value;
+
+      if (initials === null) {
+
+          console.log("No value entered!");
+
+      } else {
+          var finalScore = {
+              initials: initials,
+              score: timeRemaining
+          }
+          console.log(finalScore);
+          var allScores = localStorage.getItem("allScores");
+          if (allScores === null) {
+              allScores = [];
+          } else {
+              allScores = JSON.parse(allScores);
+          }
+          allScores.push(finalScore);
+          var newScore = JSON.stringify(allScores);
+          localStorage.setItem("allScores", newScore);
+          // Travels to final page
+          window.location.replace("./HighScores.html");
+      }
+  });
