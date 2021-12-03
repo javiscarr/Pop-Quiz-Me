@@ -31,5 +31,5 @@ Users will be able to take a knowledge test of their Javascript expertise. A que
 
 ## Screenshot
 
-<img src = "assets/images/quiz1.jpg">
+![quizHomepage][quiz1.JPG]
 
